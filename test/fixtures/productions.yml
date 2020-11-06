@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  producer: one
+  owner: one
+  client: one
+  title: MyString
+  contract: MyString
+
+two:
+  producer: two
+  owner: two
+  client: two
+  title: MyString
+  contract: MyString
