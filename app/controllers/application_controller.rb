@@ -10,7 +10,6 @@ helper_method :logged_in?, :current_user, :redirect_if_logged_in, :redirect_if_n
     # end 
 
     def current_user
-        binding.pry
         @user ||= User.find_by_id(session[:user_id])
     end 
 
