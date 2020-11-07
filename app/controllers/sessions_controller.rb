@@ -4,13 +4,13 @@ class SessionsController < ApplicationController
     
     
     def login
-        @owner = Owner.new
+        @user = User.new
     end
 
     def create
-        @owner = Owner.find_by(email: params[:email])
-        if @owner.authenticate(params[:password])
-            session[:owner_id] = @owner.id
+        @user = User.find_by(email: params[:email])
+        if @user.authenticate(params[:password])
+            session[:user_id] = @user.id
             redirect_to '/'
         else
             redirect_to '/signup'
