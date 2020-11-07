@@ -1,6 +1,6 @@
 <ul>
 
 <% @producers.each do |producer| %>
-   <li> <%= producer.name %>
+   <li> <%= link_to producer.name, producer_path(producer) %>
     <%= producer.rate %></li>
 <% end %></ul>

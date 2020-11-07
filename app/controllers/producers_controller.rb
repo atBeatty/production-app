@@ -12,7 +12,7 @@ class ProducersController < ApplicationController
     end
 
     def show
-
+        set_producer
     end
 
     def edit
@@ -26,7 +26,10 @@ class ProducersController < ApplicationController
     def destroy
     end
 
-
+    private
+    def set_producer
+        @producer = Producer.find_by_id(params[:id])
+    end
 
 
 end
