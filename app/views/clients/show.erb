@@ -4,9 +4,11 @@
 
 
 
-<%= link_to "Edit", edit_client_path(@client) %>
+<p><%= link_to "Edit", edit_client_path(@client) %></p>
+<p><%= link_to "Delete", edit_client_path(@client) %></p>
 
-<%= @client.productions.each do |production| %>
-    <%= production.title %>
+<% @client.productions.each do |production| %>
+
+    <h5><%= production.title %></h5>
 <% end %>
 

@@ -33,7 +33,7 @@ class ProductionsController < ApplicationController
 
     def edit
         set_production
-        @production = Production.find_by_id(params[:id])
+        @producers = Producer.all
     end
  
     def update
@@ -43,6 +43,13 @@ class ProductionsController < ApplicationController
         # p.update(title: params[:production][:title])
         redirect_to productions_path
     end
+
+    def destroy
+        set_production
+        @production.destroy
+        redirect_to productions_path
+    end
+
 
 
     private

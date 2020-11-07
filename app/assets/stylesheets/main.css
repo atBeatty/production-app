@@ -1,10 +1,13 @@
 a {
+    
     color:black;
     font-variant-caps: all-small-caps;
     font-family: Arial, Helvetica, sans-serif;
-
 }
-h1{
+li {
+    list-style: none;
+}
+h1 {
     /* font-size: xx-small; */
     color:blue
 }
