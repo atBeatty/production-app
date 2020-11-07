@@ -2,6 +2,7 @@ class ProducersController < ApplicationController
     
     before_action :redirect_if_not_logged_in
     before_action :set_producer
+    
 
     def index
         @producers = Producer.all
