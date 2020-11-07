@@ -14,8 +14,8 @@ end
 Producer.create(name: Faker::Name.name, rate: rand(500..800))
 end
 
-Owner.create(name: "Adam Beatty", email: "adam.b@yahoo.com", password: "password")
+User.create(name: "Adam Beatty", email: "adam.b@yahoo.com", password: "password")
 
 20.times do 
-    Production.create(title: ["Cool Photo Shoot", "Awesome Campaign Event"].sample, contract: rand(15000..25000), producer_id: rand(1..5), client_id: rand(1..5), owner_id: 1)
+    Production.create(title: ["Cool Photo Shoot", "Awesome Campaign Event"].sample, contract: rand(15000..25000), producer_id: rand(1..5), client_id: rand(1..5), user_id: 1)
 end

@@ -20,14 +20,6 @@ ActiveRecord::Schema.define(version: 2020_11_06_223117) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "owners", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "producers", force: :cascade do |t|
     t.string "name"
     t.integer "rate"
@@ -37,18 +29,26 @@ ActiveRecord::Schema.define(version: 2020_11_06_223117) do
 
   create_table "productions", force: :cascade do |t|
     t.integer "producer_id", null: false
-    t.integer "owner_id", null: false
+    t.integer "user_id", null: false
     t.integer "client_id", null: false
     t.string "title"
     t.string "contract"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["client_id"], name: "index_productions_on_client_id"
-    t.index ["owner_id"], name: "index_productions_on_owner_id"
     t.index ["producer_id"], name: "index_productions_on_producer_id"
+    t.index ["user_id"], name: "index_productions_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   add_foreign_key "productions", "clients"
-  add_foreign_key "productions", "owners"
   add_foreign_key "productions", "producers"
+  add_foreign_key "productions", "users"
 end
