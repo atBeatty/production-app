@@ -1,4 +1,5 @@
 class ProductionsController < ApplicationController
+    before_action :set_production
     def index
         @productions = Production.all
     end
@@ -20,13 +21,10 @@ class ProductionsController < ApplicationController
     end
 
     def update
-        p = Production.find(params[:id])
-
-        binding.pry
-        p.update(title: params[:production][:title])
-        binding.pry
+        @production.update(production_params)
+        # p = Production.find(params[:id])
+        # p.update(title: params[:production][:title])
         redirect_to productions_path
-
     end
 
 
@@ -36,7 +34,7 @@ class ProductionsController < ApplicationController
     end
 
     def production_params
-        params.require(:production).permit(:title, :contract)
+        params.require(:production).permit(:title, :contract, :user_id, :producer_id, :client_id)
     end
 
 
