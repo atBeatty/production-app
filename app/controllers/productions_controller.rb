@@ -1,5 +1,5 @@
 class ProductionsController < ApplicationController
-    before_action :set_production, only: [:show, :edit]
+    before_action :set_production
     def index
         @productions = Production.all
     end
@@ -12,13 +12,16 @@ class ProductionsController < ApplicationController
     end
 
     def create
+        production = Production.new(production_params)
+        production.user_id = current_user.id
+        binding.pry
         redirect_to production_path(production)
     end
 
     def edit
         @production = Production.find_by_id(params[:id])
     end
-
+ 
     def update
         @production.update(production_params)
         # p = Production.find(params[:id])
@@ -29,7 +32,7 @@ class ProductionsController < ApplicationController
 
     private
     def set_production
-        @production = Production.find_by_id(params[:id])
+        @production ||= Production.find_by_id(params[:id])
     end
 
     def production_params
