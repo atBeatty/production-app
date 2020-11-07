@@ -2,5 +2,11 @@
 <h5><%= @client.contact %></h5>
 <h5><%= @client.contact_email %></h5>
 
+
+
 <%= link_to "Edit", edit_client_path(@client) %>
+
+<%= @client.productions.each do |production| %>
+    <%= production.title %>
+<% end %>
 

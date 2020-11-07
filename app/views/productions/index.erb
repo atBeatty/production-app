@@ -1,6 +1,6 @@
 <ul>
 
-<% @productions.each do |production| %>
+<% @productions.reverse.each do |production| %>
    <li> <%= link_to production.title, production_path(production) %>
     <%= production.contract %></li>
 <% end %></ul>

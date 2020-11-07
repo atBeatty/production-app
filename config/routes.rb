@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   resources :productions
   resources :users
   resources :clients
-  resources :producers
+  resources :producers do 
+    resources :productions
+  end
+  
 
   get '/login', to: 'sessions#login'
   post 'login', to: 'sessions#create'

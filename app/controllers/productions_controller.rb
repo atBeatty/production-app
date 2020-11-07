@@ -1,28 +1,37 @@
 class ProductionsController < ApplicationController
-    before_action :set_production
+    
     def index
-        @productions = Production.all
+        if params[:producer_id]
+            @productions = Producer.find(params[:producer_id]).productions
+        else
+            @productions = Production.all
+        end
     end
+
 
     def new
         @production = Production.new
+        @production
     end
 
     def show
+        set_production
     end
 
     def create
-        production = Production.new(production_params)
-        production.user_id = current_user.id
+        @production = Production.new(production_params)
+        @production.user_id = current_user.id
         binding.pry
-        redirect_to production_path(production)
+        redirect_to productions_path
     end
 
     def edit
+        set_production
         @production = Production.find_by_id(params[:id])
     end
  
     def update
+        set_production
         @production.update(production_params)
         # p = Production.find(params[:id])
         # p.update(title: params[:production][:title])
@@ -32,7 +41,7 @@ class ProductionsController < ApplicationController
 
     private
     def set_production
-        @production ||= Production.find_by_id(params[:id])
+        @production = Production.find_by_id(params[:id])
     end
 
     def production_params
