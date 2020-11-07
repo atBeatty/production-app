@@ -4,7 +4,7 @@ class ProductionsController < ApplicationController
         if params[:producer_id]
             @productions = Producer.find(params[:producer_id]).productions
         else
-            @productions = Production.all
+            @productions = current_user.productions
         end
     end
 
