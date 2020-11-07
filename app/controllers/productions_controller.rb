@@ -1,5 +1,5 @@
 class ProductionsController < ApplicationController
-    before_action :set_production
+    before_action :set_production, only: [:show, :edit]
     def index
         @productions = Production.all
     end
@@ -9,11 +9,10 @@ class ProductionsController < ApplicationController
     end
 
     def show
-        set_production
     end
 
     def create
-        binding.pry
+        redirect_to production_path(production)
     end
 
     def edit
