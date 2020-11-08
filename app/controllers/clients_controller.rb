@@ -1,11 +1,10 @@
 class ClientsController < ApplicationController
+    before_action :redirect_if_not_logged_in
     before_action :set_client, only: [:show, :edit, :destroy]
     
     def index
-        
         @clients = Client.all
     end
-
     
     def new
         @client = Client.new
@@ -22,10 +21,18 @@ class ClientsController < ApplicationController
     def edit
     end
 
-    def destroy
-        @client.delete
+    def update
+        if @client
+            @client.update(client_params)
+        else
+            render "edit"
+        end
     end
 
+    def destroy
+        @client.destroy
+        redirect_to clients_path
+    end
 
     private
     def client_params
@@ -33,10 +40,6 @@ class ClientsController < ApplicationController
     end
 
     def set_client
-        @client = Client.find_by_id(params[:id])
+        @client ||= Client.find_by_id(params[:id])
     end
-
-    
-
-
 end
