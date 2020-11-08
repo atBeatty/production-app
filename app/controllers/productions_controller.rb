@@ -1,4 +1,5 @@
 class ProductionsController < ApplicationController
+    before_action :redirect_if_not_logged_in
     
     def index
         if params[:producer_id]
@@ -22,9 +23,7 @@ class ProductionsController < ApplicationController
     def create
         @production = Production.new(production_params)
         @production.user_id = current_user.id
-        # binding.pry
         if @production.save
-        # binding.pry
         redirect_to productions_path
         else
             render 'new'
@@ -39,8 +38,6 @@ class ProductionsController < ApplicationController
     def update
         set_production
         @production.update(production_params)
-        # p = Production.find(params[:id])
-        # p.update(title: params[:production][:title])
         redirect_to productions_path
     end
 
