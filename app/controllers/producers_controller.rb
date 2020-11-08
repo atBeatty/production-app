@@ -29,6 +29,8 @@ class ProducersController < ApplicationController
     end
 
     def destroy
+        @producer.destroy
+        redirect_to producers_path
     end
 
     private
@@ -36,7 +38,7 @@ class ProducersController < ApplicationController
         params.require(:producer).permit(:name, :rate)
     end
     def set_producer
-        @producer = Producer.find_by_id(params[:id])
+        @producer ||= Producer.find_by_id(params[:id])
     end
 
 

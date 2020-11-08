@@ -1,5 +1,7 @@
 class ProductionsController < ApplicationController
     before_action :redirect_if_not_logged_in
+    before_action :set_production, only: [:show, :edit, :destroy]
+
     
     def index
         if params[:producer_id]
@@ -17,7 +19,6 @@ class ProductionsController < ApplicationController
     end
 
     def show
-        set_production
     end
 
     def create
@@ -31,18 +32,15 @@ class ProductionsController < ApplicationController
     end
 
     def edit
-        set_production
         @producers = Producer.all
     end
  
     def update
-        set_production
         @production.update(production_params)
         redirect_to productions_path
     end
 
     def destroy
-        set_production
         @production.destroy
         redirect_to productions_path
     end
@@ -51,7 +49,7 @@ class ProductionsController < ApplicationController
 
     private
     def set_production
-        @production = Production.find_by_id(params[:id])
+        @production ||= Production.find_by_id(params[:id])
     end
 
     def production_params
