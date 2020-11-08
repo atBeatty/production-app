@@ -21,7 +21,7 @@ before_action :redirect_if_logged_in
     
     private
     def user_params
-        params.require(:user).permit(:name, :email, :password)
+        params.require(:user).permit(:name, :email, :password, :uid)
     end
 
 

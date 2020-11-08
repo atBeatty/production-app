@@ -3,3 +3,7 @@
 <% @producer.productions.each do |production| %>
     <h3><%= production.title %></h3>
 <% end %>
+
+
+<%= link_to "Edit", edit_producer_path(@producer) %>
+<%= link_to "Delete", @producer, method: :delete %>

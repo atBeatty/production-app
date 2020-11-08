@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   end
   
   # root to: "users#new"
-  get "/auth/:provider/callback" => "sessions#create"
-  get "/signout" => "sessions#destroy", :as => :signout
+  # get "/auth/:provider/callback" => "sessions#create"
+  get '/auth/github/callback', :to => 'sessions#create'
+  # get "/signout" => "sessions#destroy", :as => :signout
 
   get '/login', to: 'sessions#login'
   post 'login', to: 'sessions#create'
