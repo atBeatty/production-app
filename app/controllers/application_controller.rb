@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-helper_method :logged_in?, :current_user, :redirect_if_logged_in, :redirect_if_not_logged_in
+    protect_from_forgery with: :exception
+    helper_method :logged_in?, :current_user, :redirect_if_logged_in, :redirect_if_not_logged_in
     
     def logged_in? 
         !!session[:user_id]
@@ -10,7 +11,7 @@ helper_method :logged_in?, :current_user, :redirect_if_logged_in, :redirect_if_n
     # end 
 
     def current_user
-        @user ||= User.find_by_id(session[:user_id])
+        @user ||= User.find_by_id(session[:user_id]) if session[:user_id]
     end 
 
     def redirect_if_not_logged_in
@@ -25,9 +26,5 @@ helper_method :logged_in?, :current_user, :redirect_if_logged_in, :redirect_if_n
         redirect_to "/"
         end 
     end 
-        
-    
-
-
 end
-    
+

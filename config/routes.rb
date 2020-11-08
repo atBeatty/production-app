@@ -2,10 +2,14 @@ Rails.application.routes.draw do
   resources :productions
   resources :users
   resources :clients
+
   resources :producers do 
     resources :productions
   end
   
+  # root to: "users#new"
+  get "/auth/:provider/callback" => "sessions#create"
+  get "/signout" => "sessions#destroy", :as => :signout
 
   get '/login', to: 'sessions#login'
   post 'login', to: 'sessions#create'
