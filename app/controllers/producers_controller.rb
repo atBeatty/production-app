@@ -25,6 +25,7 @@ class ProducersController < ApplicationController
 
     def update
         Producer.find(params[:id]).update(producer_params)
+        redirect_to producers_path
     end
 
     def destroy
