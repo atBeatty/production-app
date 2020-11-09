@@ -6,11 +6,12 @@ class SessionsController < ApplicationController
     end
 
     def create
+
         @user = User.find_or_create_by(uid: auth['uid']) do |u|
-        u.nickname = auth['info']['name']
-        binding.pry
+        u.name = auth['info']['nickname']
         u.email = auth['info']['email']
         u.password = SecureRandom.hex(16)
+        
     end
         binding.pry
         session[:user_id] = @user.id
@@ -27,8 +28,4 @@ class SessionsController < ApplicationController
     def auth
         request.env['omniauth.auth']
     end
-
-
-
-   
 end

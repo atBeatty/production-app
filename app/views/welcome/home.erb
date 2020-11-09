@@ -8,10 +8,10 @@
 
 <%# Add the Github login link here %>
 
-<% if session[:user_id] %>
-  <h1><%= @user.name %></h1>
-  <h2>Email: <%= @user.email %></h2>
-  <h2>Github UID: <%= @user.uid %></h2>
+<% if current_user %>
+  <h1><%= current_user.name %></h1>
+  <h2>Email: <%= current_user.email %></h2>
+  <h2>Github UID: <%= current_user.uid %></h2>
 <% else %>
   <%= link_to('Log in with Github!', '/auth/github') %>
 <% end %>
