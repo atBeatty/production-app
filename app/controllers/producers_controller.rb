@@ -1,5 +1,4 @@
 class ProducersController < ApplicationController
-    
     before_action :redirect_if_not_logged_in
     before_action :set_producer
     
@@ -40,6 +39,4 @@ class ProducersController < ApplicationController
     def set_producer
         @producer ||= Producer.find_by_id(params[:id])
     end
-
-
 end

@@ -7,11 +7,9 @@ Rails.application.routes.draw do
     resources :productions
   end
   
-  # root to: "users#new"
-  # get "/auth/:provider/callback" => "sessions#create"
-  get '/auth/github/callback', :to => 'sessions#create'
-  # get "/signout" => "sessions#destroy", :as => :signout
-
+  
+  get '/auth/:provider/callback', :to => 'sessions#create'
+  
   get '/login', to: 'sessions#login'
   post 'login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
