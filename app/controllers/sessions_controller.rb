@@ -5,21 +5,14 @@ class SessionsController < ApplicationController
         @user = User.new
     end
 
-    # def create
-    #     @user = User.find_or_create_by(env["omniauth.auth"])
-  	#     session[:user_id] = @user.id
-    #     redirect_to '/', :notice => "Signed in!"
-    # end
-
     def create
-        binding.pry
         @user = User.find_or_create_by(uid: auth['uid']) do |u|
-        u.name = auth['info']['name']
-        u.nickname = auth['info'['nickname']]
+        u.nickname = auth['info']['name']
+        binding.pry
         u.email = auth['info']['email']
         u.password = SecureRandom.hex(16)
     end
-    binding.pry
+        binding.pry
         session[:user_id] = @user.id
         render 'welcome/home'
     end

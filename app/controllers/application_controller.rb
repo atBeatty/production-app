@@ -6,10 +6,6 @@ class ApplicationController < ActionController::Base
         !!session[:user_id]
     end
 
-    # def admin_logged_in?
-    #   session[:user_id] == 8
-    # end 
-
     def current_user
         @user ||= User.find_by_id(session[:user_id]) if session[:user_id]
     end 
