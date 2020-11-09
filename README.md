@@ -1,9 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Installation
+Clone repository 
+Open the terminal and navigate to the application root folder
+Install all of the dependencies and gems by running bundle install
 
-Things you may want to cover:
+```
+bundle install
+```
+
 
 * Ruby version
 
