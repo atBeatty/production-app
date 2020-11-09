@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         u.email = auth[:info][:email]
         u.password = SecureRandom.hex(16)
         
-    end
+        end
         binding.pry
         session[:user_id] = @user.id
         render 'welcome/home'
