@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   end
   
   
-  get '/auth/:provider/callback', :to => 'sessions#create'
+  get '/auth/:provider/callback', :to => 'sessions#omniauth'
   
   get '/login', to: 'sessions#login'
   post 'login', to: 'sessions#create'

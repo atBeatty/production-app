@@ -10,7 +10,10 @@
   </head>
 
   <body>
-  <%= current_user.name unless current_user.nil? %>
+  <header>
+  AGENT: <%= current_user ? current_user.name : @user.uid %>
+  AGENT: <%= current_user.name unless current_user.nil? %>
+  </header>
   <nav>
   <%= link_to "Home", '/' %>
   <%= link_to "Clients", clients_path %>

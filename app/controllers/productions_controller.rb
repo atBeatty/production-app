@@ -1,12 +1,13 @@
 class ProductionsController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_production, only: [:show, :edit, :destroy]
+    before_action :set_production, only: [:show, :edit, :destroy, :update]
 
     
     def index
         if params[:producer_id]
             @productions = Producer.find(params[:producer_id]).productions
         else
+            # @productions = Production.significant_contracts
             @productions = current_user.productions
         end
     end
