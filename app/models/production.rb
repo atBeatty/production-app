@@ -10,4 +10,14 @@ class Production < ApplicationRecord
     where ("contract > 40000")
   end
 
+  def client_name=(name)
+    client = Client.find_or_create_by(name: name)
+    self.client_id = client.id
+
+  end
+
+
+
+  
+
 end
