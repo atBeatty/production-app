@@ -6,10 +6,13 @@ class SessionsController < ApplicationController
     end
 
     def create
-        binding.pry
         @user = User.find_by(email: params[:email])
+        if @user.nil?
+            redirect_to '/signup'
+        else
         session[:user_id] = @user.id
         redirect_to '/'
+        end
     end
 
     def omniauth
@@ -29,9 +32,9 @@ class SessionsController < ApplicationController
     end
 
     private
-    # def session_params
-    #     params.require(:session).require(:email, :password)
-    # end
+    def session_params
+        params.require(:session).require(:email, :password)
+    end
 
     def auth
         request.env['omniauth.auth']

@@ -10,8 +10,10 @@
   </head>
 
   <body>
+  <% flash.keys.each do | type| %>
+<%= flash[type] %> 
+<% end %>
   <header>
-  AGENT: <%= current_user ? current_user.name : @user.uid %>
   AGENT: <%= current_user.name unless current_user.nil? %>
   </header>
   <nav>

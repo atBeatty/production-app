@@ -4,9 +4,9 @@
     <%= f.label :contract %>
     <%= f.text_field :contract %>
     <%= f.label :client %>
-    <%= f.text_field :client  %>
+    <%= f.text_field :client %>
 
-<%= f.collection_select(:producer_id, @producers, :id, :name) %>
+    <%= f.collection_select(:producer_id, @producers, :id, :name) %>
 
         
 
