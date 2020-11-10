@@ -1,6 +1,6 @@
 class User < ApplicationRecord
     has_many :productions
-    
+    has_many :clients, through: :productions
     has_secure_password
 
     # def self.find_or_create_from_auth_hash(auth)

@@ -4,7 +4,7 @@ class ClientsController < ApplicationController
     
     def index
         # @clients = Client.all
-        @clients = Client.find_by(current_user.id)
+        @clients = current_user.clients
     end
     
     def new
