@@ -2,11 +2,9 @@
 <html>
   <head>
     <title>ProductionApp</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      <!--Import materialize.css-->
-      <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
 
-      <!--Let browser know website is optimized for mobile-->
+
       <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -16,19 +14,17 @@
   </head>
 
   <body>
-  <% flash.keys.each do | type| %>
+<% flash.keys.each do | type| %>
 <%= flash[type] %> 
 <% end %>
   <header>
-  AGENT: <%= current_user.name unless current_user.nil? %>
-  </header>
+  <%= "AGENT: #{current_user.name}" unless current_user.nil? %>
   <nav>
   <%= link_to "Home", '/' %>
   <%= link_to "Clients", clients_path %>
   <%= link_to "Productions", productions_path %>
   <%= link_to "Producers", producers_path %>
   <%= link_to "About", '/about' %>
-  </nav>
+  </nav></header>
     <%= yield %>
-  </body>
-</html>
+  </body></html>

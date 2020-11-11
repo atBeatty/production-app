@@ -24,11 +24,13 @@ class ProductionsController < ApplicationController
 
     def create
         @production = Production.new(production_params)
+        binding.pry
         @production.user_id = current_user.id
         binding.pry
-
+        
         @production.client_name = params[:production][:client_name]
-
+        
+        binding.pry
 
 
         

@@ -16,6 +16,10 @@ class Production < ApplicationRecord
 
   end
 
+  def client_name
+    self.client
+  end
+
 
 
   
