@@ -26,8 +26,13 @@ Productions
     belongs_to :producer
     belongs_to :user
 Producers
+    has_many :productions
+    has_many :clients, through: :productions
 Clients
+    has_many :productions
+    has_many :producers, through: :productions
 Users
+    has_many :productions
 ```
 
 * Database initialization:
@@ -39,5 +44,9 @@ rails db:migrate
 rails db:seed
 ```
 
-### Main Features
+### Main Features and User Story
 
+This app is set up for an agency which keeps track of productions. Each production instance joins the foreign_keys and from there, relevant information can be displayed. From an agency/user perspective, this app allows for quick access to personnel, schedules, contracts, contact info, etc.
+
+### Vision
+I would like to see this built out to include more relationships and ties to the production class. I could see it being an app that sets reminders and and creates a daily schedule per production, considering the nuances and uniqueness of each shoot.
