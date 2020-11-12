@@ -1,3 +1,26 @@
 // Place all the styles related to the Producers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+* {
+    box-sizing: border-box;
+    padding: 5px;
+}
+
+
+.horizontal-flex {
+    display: flex;
+}
+.vertical-flex {
+    display: flex;
+    flex-direction: column;
+}
+input[type="submit"] {
+    width: 100px;
+}
+
+
+/* LOGIN PAGE */
+
+form.login > * {
+    width: 150px;
+}

@@ -24,16 +24,10 @@ class ProductionsController < ApplicationController
 
     def create
         @production = Production.new(production_params)
-        binding.pry
         @production.user_id = current_user.id
-        binding.pry
-        
+        # @production.client_id = params[:production][:client_name]
         @production.client_name = params[:production][:client_name]
-        
         binding.pry
-
-
-        
         if @production.save
             redirect_to productions_path
         else
@@ -63,7 +57,7 @@ class ProductionsController < ApplicationController
     end
 
     def production_params
-        params.require(:production).permit(:title, :contract, :user_id, :producer, :client, :client_name, :producer_id, :client_id)
+        params.require(:production).permit(:title, :contract, :user_id, :producer, :client_name, :producer_id, :client_id)
     end
 
 

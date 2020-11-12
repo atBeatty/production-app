@@ -16,19 +16,8 @@ class SessionsController < ApplicationController
     end
     
     def omniauth
-     
+        
         @user = User.find_or_create_by(uid: auth['uid'], name: auth[:info][:name], email: "adam@adam.com", password_digest: "cool")
-        # @user = User.find_or_create_by(uid: auth['uid']) do |u|
-        #     u.name = auth[:info][:name]
-        #     u.email = auth[:info][:nickname]
-        #     u.name = auth[:info][:nickname]
-        #     binding.pry
-            
-        #     u.password = SecureRandom.hex(16)
-        # end
-        # @user = User.find_or_create_by(uid: auth['uid'])
-        binding.pry
-        session[:name] = "Frog"
         session[:user_id] = @user.id
         render 'welcome/home'
     end
@@ -44,7 +33,6 @@ class SessionsController < ApplicationController
     end
 
     protected 
-
     def auth
         request.env['omniauth.auth']
     end
