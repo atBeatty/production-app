@@ -4,7 +4,7 @@
     <%= label_tag 'password' %>
     <%= password_field_tag 'password' %>
     <%= submit_tag 'Login' %>
-    <%= link_to "Sign in with Github", '/auth/github' %>
+    
 <% end %>
 <% if current_user %>
   <h1><%= current_user.name %></h1>

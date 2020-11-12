@@ -25,9 +25,11 @@ h1 {
     font-size: x-large;
 }
 
-/* LOGIN PAGE */
-
-form.login > * {
+/* LOGIN & SIGNUP PAGE */
+#signup-input {
+    width: 150px;
+}
+form.login, form.signup > * {
     width: 150px;
 }
 

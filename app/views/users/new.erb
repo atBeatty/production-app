@@ -1,11 +1,11 @@
 
 
-<%= form_with(model: @user, url: '/signup', method: "post") do |f| %>
+<%= form_with(model: @user, url: '/signup', method: "post", class: "vertical-flex signup") do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
     <%= f.label :email %>
     <%= f.text_field :email %>
     <%= f.label :password %>
     <%= f.password_field :password %>
-    <%= f.submit %>
+    <%= f.submit id: "signup-input" %>
 <% end %>
