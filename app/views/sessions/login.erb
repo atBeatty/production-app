@@ -6,3 +6,10 @@
     <%= submit_tag 'Login' %>
     <%= link_to "Sign in with Github", '/auth/github' %>
 <% end %>
+<% if current_user %>
+  <h1><%= current_user.name %></h1>
+  <h2>Email: <%= current_user.email %></h2>
+  <h2>Github UID: <%= current_user.uid %></h2>
+<% else %>
+  <%= link_to('Log in with Github!', '/auth/github') %>
+<% end %>

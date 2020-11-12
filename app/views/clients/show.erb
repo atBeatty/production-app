@@ -1,13 +1,16 @@
-<h1><%= @client.name %></h1>
-<p>Person to Contact: <h5><%= @client.contact %></h5></p>
-<p><h5><%= @client.contact_email %></h5></p>
+<div class="client-wrapper horizontal-flex">
+<p class="client"><%= @client.name %></p>
+    <div class="vertical-flex client-info">   
+        <p>Person to Contact: <%= @client.contact %>/<%= @client.contact_email %></p>
 
 
 
-<p><%= link_to "Edit", edit_client_path(@client) %></p>
-<p><%= link_to "Delete", @client, method: :delete %></p>
 
-<% @client.productions.each do |production| %>
-    <h5><%= production.title %></h5>
-<% end %>
+        <p><%= link_to "Edit", edit_client_path(@client) %></p>
+        <p><%= link_to "Delete", @client, method: :delete %></p>
 
+        <% @client.productions.each do |production| %>
+            <h5><%= production.title %></h5>
+        <% end %>
+    </div>
+</div>

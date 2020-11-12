@@ -1,23 +1,54 @@
 * {
     box-sizing: border-box;
-    padding: 5px;
+    /* padding: 5px; */
+    /* border: 1px solid black; */
 }
-
-
+body {
+    padding-left: 25px;
+    padding-right: 25px;
+}
 .horizontal-flex {
+    justify-content: space-around;
+    width: 75vw;
     display: flex;
+    flex-wrap: wrap;
 }
 .vertical-flex {
+    align-items: center;
     display: flex;
     flex-direction: column;
 }
 input[type="submit"] {
     width: 100px;
 }
-
+h1 {
+    font-size: x-large;
+}
 
 /* LOGIN PAGE */
 
 form.login > * {
     width: 150px;
+}
+
+/* PRODUCITONS INDEX */
+
+div.production-basic p {
+    text-align: center;
+    margin-bottom: none;
+}
+
+/* CLIENTS INDEX */
+
+.client-module {
+    text-align: center;
+    flex-basis: 20vw;
+}
+
+/* CLIENTS SHOW */
+p.client {
+    font-size: 80px;
+    font-weight: bolder;
+
+    align-self: flex-start;
 }

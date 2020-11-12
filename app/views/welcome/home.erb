@@ -2,18 +2,9 @@
 
 <h1><%= link_to "+", new_production_path %></h1>
 
-<%= link_to "Log In", '/login' %>
-<% if !current_user %>
-  <%= link_to "Log Out", '/logout', method: :delete %>
-<% end %>
-<%= link_to "Sign Up", '/signup' %>
+<%#= link_to("Log In", '/login') unless current_user%>
+<%#= link_to("Sign Up", '/signup') unless current_user %>
 
 <%# Add the Github login link here %>
 
-<% if current_user %>
-  <h1><%= current_user.name %></h1>
-  <h2>Email: <%= current_user.email %></h2>
-  <h2>Github UID: <%= current_user.uid %></h2>
-<% else %>
-  <%= link_to('Log in with Github!', '/auth/github') %>
-<% end %>
+Over <%= Production.all.count %> productions, with <%= Client.all.count %> clients.

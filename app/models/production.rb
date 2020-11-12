@@ -16,16 +16,8 @@ class Production < ApplicationRecord
       self.client_id = client.id
     else
       client = Client.create(name: name)
-      binding.pry
       self.client_id = client.id
     end
-
-  #   if client
-  #     client.update(name: name)
-  #   else
-  #     client = Client.create(name: name)
-  #     self.client = client
-  #   end
   end
 
   def client_name

@@ -18,7 +18,12 @@
     <%= flash[type] %> 
     <% end %>
     <header>
+    <div class="user-box">
     <%= "AGENT: #{current_user.name}" unless current_user.nil? %>
+    <%= link_to("Log In", '/login') unless current_user%>
+    <%= link_to("Log Out", '/logout', method: :delete) if current_user %>
+    <%= link_to("Sign Up", '/signup') unless current_user %>
+    </div>
       <nav>
       <%= link_to "Home", '/' %>
       <%= link_to "Clients", clients_path %>
@@ -28,9 +33,9 @@
       </nav>
     </header>
 
-      <div class="main=wrapper">
+      <div class="main=wrapper vertical-flex">
         <%= yield %>
       </div>
-      
+
     </body>
   </html>

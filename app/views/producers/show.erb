@@ -1,9 +1,10 @@
 <h1><%= @producer.name %> <%= @producer.rate %></h1>
+<%= link_to "Edit", edit_producer_path(@producer) %>
+
 
 <% @producer.productions.each do |production| %>
     <h3><%= production.title %></h3>
 <% end %>
 
 
-<%= link_to "Edit", edit_producer_path(@producer) %>
 <%= link_to "Delete", @producer, method: :delete %>

@@ -6,11 +6,16 @@ class ProductionsController < ApplicationController
     def index
         if params[:producer_id]
             @productions = Producer.find(params[:producer_id]).productions
+        elsif params[:significant_contracts]
+            @productions = Production.significant_contracts
         else
             # @productions = Production.significant_contracts
             @productions = current_user.productions
         end
     end
+
+ 
+
 
 
     def new
@@ -26,7 +31,6 @@ class ProductionsController < ApplicationController
         @production = Production.new(production_params)
         @production.user_id = current_user.id
         @production.client_name = params[:production][:client_name]
-        binding.pry
         if @production.save
             redirect_to productions_path
         else
