@@ -13,18 +13,24 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-<% flash.keys.each do | type| %>
-<%= flash[type] %> 
-<% end %>
-  <header>
-  <%= "AGENT: #{current_user.name}" unless current_user.nil? %>
-  <nav>
-  <%= link_to "Home", '/' %>
-  <%= link_to "Clients", clients_path %>
-  <%= link_to "Productions", productions_path %>
-  <%= link_to "Producers", producers_path %>
-  <%= link_to "About", '/about' %>
-  </nav></header>
-    <%= yield %>
-  </body></html>
+    <body>
+    <% flash.keys.each do | type| %>
+    <%= flash[type] %> 
+    <% end %>
+    <header>
+    <%= "AGENT: #{current_user.name}" unless current_user.nil? %>
+      <nav>
+      <%= link_to "Home", '/' %>
+      <%= link_to "Clients", clients_path %>
+      <%= link_to "Productions", productions_path %>
+      <%= link_to "Producers", producers_path %>
+      <%= link_to "About", '/about' %>
+      </nav>
+    </header>
+
+      <div class="main=wrapper">
+        <%= yield %>
+      </div>
+      
+    </body>
+  </html>

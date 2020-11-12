@@ -11,13 +11,21 @@ class Production < ApplicationRecord
   end
 
   def client_name=(name)
-    client = Client.find_by_id(self.client.id)
+    client = Client.find_by(name: name)
     if client
-      client.update(name: name)
+      self.client_id = client.id
     else
       client = Client.create(name: name)
-      self.client = client
+      binding.pry
+      self.client_id = client.id
     end
+
+  #   if client
+  #     client.update(name: name)
+  #   else
+  #     client = Client.create(name: name)
+  #     self.client = client
+  #   end
   end
 
   def client_name

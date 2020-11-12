@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_client, only: [:show, :edit, :destroy]
+    before_action :set_client
     
     def index
         # @clients = Client.all
@@ -25,6 +25,7 @@ class ClientsController < ApplicationController
     def update
         if @client
             @client.update(client_params)
+            redirect_to client_path(@client)
         else
             render "edit"
         end

@@ -25,7 +25,6 @@ class ProductionsController < ApplicationController
     def create
         @production = Production.new(production_params)
         @production.user_id = current_user.id
-        # @production.client_id = params[:production][:client_name]
         @production.client_name = params[:production][:client_name]
         binding.pry
         if @production.save

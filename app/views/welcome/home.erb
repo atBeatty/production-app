@@ -3,7 +3,9 @@
 <h1><%= link_to "+", new_production_path %></h1>
 
 <%= link_to "Log In", '/login' %>
-<%= link_to "Log Out", '/logout', method: :delete %>
+<% if !current_user %>
+  <%= link_to "Log Out", '/logout', method: :delete %>
+<% end %>
 <%= link_to "Sign Up", '/signup' %>
 
 <%# Add the Github login link here %>
