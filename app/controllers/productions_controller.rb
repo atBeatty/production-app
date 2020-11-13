@@ -2,10 +2,6 @@ class ProductionsController < ApplicationController
     before_action :redirect_if_not_logged_in
     before_action :set_production, only: [:edit, :update, :show, :destroy]
     
-    # def significant_contracts
-    #     binding.pry
-    #     @productions = Production.significant_contracts
-    # end
     
     def index
         if params[:producer_id]
@@ -20,23 +16,21 @@ class ProductionsController < ApplicationController
 
     def new
         @producers = Producer.all
-        # @client = Client.new
         @production = Production.new
     end
-
 
     def show
     end
 
     def create
-        @production = Production.new(production_params)
-        @production.user_id = current_user.id
-        @production.client_name = params[:production][:client_name]
+        production = Production.new(production_params)
+        production.user_id = current_user.id
+        production.client_name = params[:production][:client_name]
 
-        if @production.client_name == ""
+        if production.client_name == ""
             redirect_to new_production_path
-        elsif @production.save
-            redirect_to production_path(@production)
+        elsif production.save
+            redirect_to production_path(production)
         else
             render 'new'
         end

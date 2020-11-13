@@ -2,7 +2,6 @@ class SessionsController < ApplicationController
     # before_action :redirect_if_logged_in
     
     def login
-        
         @user = User.new
     end
 
@@ -17,7 +16,6 @@ class SessionsController < ApplicationController
     end
     
     def omniauth
-        
         @user = User.find_or_create_by(uid: auth['uid'], name: auth[:info][:name], email: "adam@adam.com", password_digest: "cool")
         session[:user_id] = @user.id
         render 'welcome/home'
