@@ -3,7 +3,7 @@
 <% @clients.uniq.each do |client| %>
     <div class="client-module">
     <h2><%= link_to client.name, client_path(client) %></h2>
-        <%= client.productions.count %>
+        <h2><%= client.productions.count %></h2>
     </div>
 <% end %>
 </div>

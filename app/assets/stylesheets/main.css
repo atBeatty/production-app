@@ -25,8 +25,12 @@ h1 {
     font-size: x-large;
 }
 
+
 /* LOGIN & SIGNUP PAGE */
-#signup-input {
+.user-submit {
+    width: 150px;
+}
+#user-input {
     width: 150px;
 }
 form.login, form.signup > * {
@@ -34,17 +38,15 @@ form.login, form.signup > * {
 }
 
 /* PRODUCITONS INDEX */
-
-div.production-basic p {
+.production-module {
     text-align: center;
-    margin-bottom: none;
+    flex-basis: 35vw;
 }
-
 /* CLIENTS INDEX */
 
 .client-module {
     text-align: center;
-    flex-basis: 20vw;
+    flex-basis: 35vw;
 }
 
 /* CLIENTS SHOW */
