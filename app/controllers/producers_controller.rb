@@ -1,6 +1,6 @@
 class ProducersController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_producer
+    before_action :set_producer, only: [:show, :edit, :update, :destroy]
     
 
     def index
@@ -12,14 +12,14 @@ class ProducersController < ApplicationController
     end
 
     def create
-        producer = Producer.create(producer_params)
-        redirect_to producer_path(producer)
-    end
-
-    def show
-    end
-
-    def edit
+        producer = Producer.new(producer_params)
+        binding.pry
+        if producer.valid? 
+            producer.save
+            redirect_to producer_path(producer)
+        else
+            redirect_to new_producer_path, :notice => producer.errors.messages[:name]
+        end
     end
 
     def update

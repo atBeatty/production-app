@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # get 'productions/significant_contracts', to: 'productions#significant_contracts'
   resources :productions
   resources :users
   resources :clients
@@ -17,5 +18,4 @@ Rails.application.routes.draw do
 
   get '/about', to: 'welcome#about'
   get '/', to: 'welcome#home'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

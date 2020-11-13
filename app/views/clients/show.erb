@@ -1,16 +1,13 @@
-<div class="client-wrapper horizontal-flex">
-<p class="client"><%= @client.name %></p>
+<div class="client-show-wrapper horizontal-flex">
+<h1 class="client"><%= @client.name %></h1>
     <div class="vertical-flex client-info">   
-        <p>Person to Contact: <%= @client.contact %>/<%= @client.contact_email %></p>
-
-
-
-
-        <p><%= link_to "Edit", edit_client_path(@client) %></p>
-        <p><%= link_to "Delete", @client, method: :delete %></p>
-
-        <% @client.productions.each do |production| %>
-            <h5><%= production.title %></h5>
-        <% end %>
+        <h3>Person to Contact: <%= @client.contact %>/<%= @client.contact_email %></h3>
+        <%= link_to "Edit", edit_client_path(@client) %>
+        <%= link_to "Delete", @client, method: :delete %>
     </div>
 </div>
+
+<h2>Previous Productions With LML</h2>
+<% @client.productions.each do |production| %>
+    <h5><%= production.title %></h5>
+<% end %>

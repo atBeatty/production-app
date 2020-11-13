@@ -1,10 +1,19 @@
 
+
+<%= form_with url: productions_path, method: :get, local: true do %>
+<%= select_tag :filter, options_for_select(["Significant Contracts"]), include_blank: true %>
+<%= submit_tag "Filter" %>
+<% end %>
 <div class="production-wrapper horizontal-flex">
+
 <% @productions.reverse.each do |production| %>
 <div class="production-module">
-<h2><%= link_to production.title, production_path(production) %></h2>
-<h3>$<%= production.contract %></h3>
-<h3 ><%= production.client_name %></h3>
+    <h2><%= link_to production.title, production %></h2>
+    <span class="label-tag">Contract Value</span><br>
+    <h3>$<%= production.contract %></h3>
+    <span class="label-tag">Client</span><br>
+    <h3 ><%= production.client_name %></h3>
 </div>
+
 <% end %>
 </div>

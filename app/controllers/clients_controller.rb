@@ -1,9 +1,8 @@
 class ClientsController < ApplicationController
     before_action :redirect_if_not_logged_in
-    before_action :set_client
+    before_action :set_client, only: [:show, :edit, :update, :destroy]
     
     def index
-        # @clients = Client.all
         @clients = current_user.clients
     end
     
@@ -14,12 +13,6 @@ class ClientsController < ApplicationController
     def create
         @client = Client.create(client_params)
         redirect_to @client
-    end
-
-    def show
-    end
-
-    def edit
     end
 
     def update

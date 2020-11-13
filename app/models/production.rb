@@ -2,13 +2,8 @@ class Production < ApplicationRecord
   belongs_to :producer
   belongs_to :user
   belongs_to :client, optional: true
-  # scope :significant_contracts
-  
+  scope :significant_contracts, -> {where("contract > ?", 40000)}
 
-
-  def self.significant_contracts
-    where ("contract > 40000")
-  end
 
   def client_name=(name)
     client = Client.find_by(name: name)

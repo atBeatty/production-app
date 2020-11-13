@@ -1,8 +1,13 @@
-<ul>
-<% @producers.each do |producer| %>
-   <li> <%= link_to producer.name, producer_path(producer) %></li>
-   <li>$<%= producer.rate %></li>
-<% end %>
-</ul>
 
 <%= link_to "Hire Producer",  new_producer_path %>
+
+<div class="producer-wrapper horizontal-flex">
+<% @producers.each do |producer| %>
+
+<div class="producer-module">
+    <h2><%= link_to producer.name, producer_path(producer) %></h2>
+    <h3><span class="label-tag">Rate</span>$<%= producer.rate %></h3>
+</div>
+
+<% end %>
+</div>

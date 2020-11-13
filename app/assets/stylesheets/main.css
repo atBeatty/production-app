@@ -3,9 +3,18 @@
     /* padding: 5px; */
     /* border: 1px solid black; */
 }
+nav a {
+    color: black;
+    font-size: large;
+}
+header {
+    padding-left: 10vw;
+    border-bottom: blue;
+    border-bottom-style: double;
+}
 body {
-    padding-left: 25px;
-    padding-right: 25px;
+    padding-left: 15vw;
+    padding-right: 15vw;
 }
 .horizontal-flex {
     justify-content: space-around;
@@ -14,6 +23,7 @@ body {
     flex-wrap: wrap;
 }
 .vertical-flex {
+    
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -22,7 +32,12 @@ input[type="submit"] {
     width: 100px;
 }
 h1 {
-    font-size: x-large;
+    font-size: xx-large;
+    font-variant-caps: titling-caps;
+    font-weight: bolder;
+}
+h2 {
+    background-color: white;
 }
 
 
@@ -41,6 +56,8 @@ form.login, form.signup > * {
 .production-module {
     text-align: center;
     flex-basis: 35vw;
+    margin-top: 10px;
+
 }
 /* CLIENTS INDEX */
 
@@ -49,10 +66,27 @@ form.login, form.signup > * {
     flex-basis: 35vw;
 }
 
-/* CLIENTS SHOW */
-p.client {
-    font-size: 80px;
-    font-weight: bolder;
 
+/* CLIENTS SHOW */
+.client {
+    font-size: 40px;
+    font-weight: bolder;
+    flex-basis: 20vw;
     align-self: flex-start;
+}
+.client-show-wrapper {
+    border-bottom: blue;
+    border-bottom-style: double;
+}
+
+/* PRODUCERS INDEX */
+
+.producer-module {
+    text-align: center;
+    flex-basis: 35vw;
+}
+.label-tag {
+    font-variant-caps: all-small-caps;
+    font-weight: bolder;
+    color: blue;
 }
