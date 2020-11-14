@@ -26,8 +26,8 @@ class ProductionsController < ApplicationController
         production = Production.new(production_params)
         production.user_id = current_user.id
         production.client_name = params[:production][:client_name]
-
-        if production.client_name == ""
+        if !production.valid?
+            flash[:errors] = production.errors.full_messages
             redirect_to new_production_path
         elsif production.save
             redirect_to production_path(production)

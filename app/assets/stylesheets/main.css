@@ -8,7 +8,6 @@ nav a {
     font-size: large;
 }
 header {
-    padding-left: 10vw;
     border-bottom: blue;
     border-bottom-style: double;
 }
@@ -17,7 +16,7 @@ body {
     padding-right: 15vw;
 }
 .horizontal-flex {
-    justify-content: space-around;
+
     width: 75vw;
     display: flex;
     flex-wrap: wrap;
@@ -89,4 +88,5 @@ form.login, form.signup > * {
     font-variant-caps: all-small-caps;
     font-weight: bolder;
     color: blue;
+    
 }
