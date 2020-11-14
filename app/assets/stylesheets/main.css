@@ -31,12 +31,24 @@ input[type="submit"] {
     width: 100px;
 }
 h1 {
-    font-size: xx-large;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 100px;
     font-variant-caps: titling-caps;
     font-weight: bolder;
 }
 h2 {
     background-color: white;
+}
+
+/* HOME PAGE */
+span.big-number {
+margin:40px;    text-align: center;
+    width:25vw;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 15vw;
+    font-weight: bold;
+    color: #93c54b;
+
 }
 
 

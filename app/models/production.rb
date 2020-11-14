@@ -1,9 +1,10 @@
 class Production < ApplicationRecord
   belongs_to :producer
   belongs_to :user
-  belongs_to :client, optional: true
+  belongs_to :client#, optional: true
   validates :title, presence: true
   validates :contract, presence: true
+  validates :client_id, presence: true
   scope :significant_contracts, -> {where("contract > ?", 40000)}
 
 
@@ -18,11 +19,7 @@ class Production < ApplicationRecord
   end
 
   def client_name
-    if self.client
-      self.client.name
-    else
-      ""
-    end
+    self.client ? self.client.name : nil
   end
 
 

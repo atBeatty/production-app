@@ -49,4 +49,4 @@ rails db:seed
 This app is set up for an agency which keeps track of productions. Each production instance joins the foreign_keys and from there, relevant information can be displayed. From an agency/user perspective, this app allows for quick access to personnel, schedules, contracts, contact info, etc.
 
 ### Vision
-I would like to see this built out to include more relationships and ties to the production class. I could see it being an app that sets reminders and and creates a daily schedule per production, considering the nuances and uniqueness of each shoot.
+I would like to see this built out to include more relationships and ties to the production class. I could see it being an app that sets reminders and and creates a daily schedule per production, considering the nuances and uniqueness of each shoot. It would be helpful to hook into a Crew class that helps access data on the Production crew. I imagine this will be a list of contractors/freelancers that are able to have many productions as one data association.

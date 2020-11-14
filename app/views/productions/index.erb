@@ -9,10 +9,10 @@
 <% @productions.reverse.each do |production| %>
 <div class="production-module">
     <h2><%= link_to production.title, production %></h2>
-    <span class="label-tag">Contract Value</span><br>
-    <h3>$<%= production.contract %></h3>
-    <span class="label-tag">Client</span><br>
-    <h3 ><%= production.client_name %></h3>
+    
+    <h3><span class="label-tag">Contract Value</span><br>$<%= production.contract %></h3>
+    
+    <h3><span class="label-tag">Client</span><br><%= production.client_name %></h3>
 </div>
 
 <% end %>

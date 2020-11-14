@@ -15,8 +15,11 @@
 
     <body>
 
+  <% if !!flash[:errors] %>
     <% flash.keys.each do | type| %>
-    <%= flash[type].to_sentence %>
+    <%= binding.pry %>
+    <%= flash[type] %>
+    <% end %>
     <% end %>
     <header>
     <div class="user-box">
@@ -34,7 +37,7 @@
       </nav>
     </header>
 
-      <div class="main=wrapper vertical-flex">
+      <div class="main-wrapper vertical-flex">
         <%= yield %>
       </div>
 

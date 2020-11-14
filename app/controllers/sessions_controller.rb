@@ -18,7 +18,7 @@ class SessionsController < ApplicationController
     def omniauth
         @user = User.find_or_create_by(uid: auth['uid'], name: auth[:info][:name], email: "adam@adam.com", password_digest: "cool")
         session[:user_id] = @user.id
-        render 'welcome/home'
+        redirect_to '/'
     end
     
     def destroy

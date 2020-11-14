@@ -1,10 +1,5 @@
-<h1>Home Page</h1>
+<h1 class="title">LML Production Agency</h1>
 
 <h1><%= link_to "+", new_production_path %></h1>
 
-<%#= link_to("Log In", '/login') unless current_user%>
-<%#= link_to("Sign Up", '/signup') unless current_user %>
-
-<%# Add the Github login link here %>
-
-Over <%= Production.all.count %> productions, with <%= Client.all.count %> clients.
+<h2>Over <br><span class="big-number"><%= @productions.count %></span><br> productions, with <br><span class="big-number"><%=@clients.count %></span><br> clients.</h2>

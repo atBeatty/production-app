@@ -13,12 +13,12 @@ class ProducersController < ApplicationController
 
     def create
         producer = Producer.new(producer_params)
-        binding.pry
         if producer.valid? 
             producer.save
             redirect_to producer_path(producer)
         else
-            redirect_to new_producer_path, :notice => producer.errors.messages[:name]
+            flash[:errors]= producer.errors.messages[:name]
+            redirect_to new_producer_path
         end
     end
 

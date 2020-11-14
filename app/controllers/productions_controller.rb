@@ -9,7 +9,7 @@ class ProductionsController < ApplicationController
         elsif params[:filter] == "Significant Contracts"
             @productions = Production.significant_contracts
             render '/productions/index'
-        else params[:filter] == ""
+        else
             @productions = current_user.productions
         end
     end
@@ -41,6 +41,7 @@ class ProductionsController < ApplicationController
     end
  
     def update
+        binding.pry
         @production.update(production_params)
         redirect_to productions_path
     end
