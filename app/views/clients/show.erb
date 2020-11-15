@@ -2,6 +2,8 @@
 <h1 class="client"><%= @client.name %></h1>
     <div class="vertical-flex client-info">   
         <h3>Person to Contact: <%= @client.contact %>/<%= @client.contact_email %></h3>
+        <%= link_to "New Production", new_client_production_path(@client, @production) %>
+
         <%= link_to "Edit", edit_client_path(@client) %>
         <%= link_to "Delete", @client, method: :delete %>
     </div>

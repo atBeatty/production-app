@@ -17,7 +17,6 @@
 
   <% if !!flash[:errors] %>
     <% flash.keys.each do | type| %>
-    <%= binding.pry %>
     <%= flash[type].is_a?(String) ? flash[type] : flash[type].to_sentence %>
     <% end %>
     <% end %>

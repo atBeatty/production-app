@@ -16,7 +16,11 @@ class ProductionsController < ApplicationController
 
     def new
         @producers = Producer.all
-        @production = Production.new
+        if params[:client_id]
+            @production = Client.find(params[:client_id]).productions.build()
+        else
+            @production = Production.new
+        end
     end
 
     def show
