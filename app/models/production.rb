@@ -22,6 +22,10 @@ class Production < ApplicationRecord
     self.client ? self.client.name : nil
   end
 
+  
+
+
+
 
 
 

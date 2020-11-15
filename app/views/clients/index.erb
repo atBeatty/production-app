@@ -1,4 +1,7 @@
-
+<%= form_with url: clients_path, method: :get, local: true do |f|  %>
+    <%= select_tag :filter, options_for_select(["Alphabetical", "Most-Recent"]), include_blank: true %>
+    <%= submit_tag "Sort" %>
+    <% end %>
 <div class="client-wrapper horizontal-flex">
 <% @clients.uniq.each do |client| %>
 

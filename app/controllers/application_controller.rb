@@ -21,6 +21,6 @@ class ApplicationController < ActionController::Base
         if logged_in?
             redirect_to "/"
         end 
-    end 
+    end
 end
 

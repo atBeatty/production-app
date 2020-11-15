@@ -9,6 +9,7 @@ class ProductionsController < ApplicationController
         elsif params[:filter] == "Significant Contracts"
             @productions = Production.significant_contracts
             render '/productions/index'
+
         else
             @productions = current_user.productions
         end
@@ -27,9 +28,11 @@ class ProductionsController < ApplicationController
     end
 
     def create
-        production = Production.new(production_params)
-        production.user_id = current_user.id
-        production.client_name = params[:production][:client_name]
+        binding.pry
+        production = current_user.productions.build(production_params)
+        # production = Production.new(production_params)
+        # production.user_id = current_user.id
+        # production.client_name = params[:production][:client_name]
         if !production.valid?
             flash[:errors] = production.errors.full_messages
             redirect_to new_production_path
@@ -45,7 +48,6 @@ class ProductionsController < ApplicationController
     end
  
     def update
-        binding.pry
         @production.update(production_params)
         redirect_to productions_path
     end

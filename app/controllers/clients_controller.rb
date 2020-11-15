@@ -3,7 +3,11 @@ class ClientsController < ApplicationController
     before_action :set_client, only: [:show, :edit, :update, :destroy]
     
     def index
-        @clients = Client.all
+        if params[:filter] == "Alphabetical"
+            @clients = Client.alphabetical
+        else
+            @clients = Client.all
+        end
     end
     
     def new

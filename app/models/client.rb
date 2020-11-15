@@ -4,6 +4,10 @@ class Client < ApplicationRecord
 
     validates :name, presence: true
 
+    def self.alphabetical
+        Client.order(:name)
+    end
+    
     
     
 end

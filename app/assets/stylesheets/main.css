@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    /* padding: 5px; */
+    padding: 5px;
     /* border: 1px solid black; */
 }
 nav a {
@@ -29,6 +29,11 @@ body {
 }
 input[type="submit"] {
     width: 100px;
+    color: white;
+    border: none;
+    background-color: #93c54b;
+    padding: 30 px;
+
 }
 .title {
     text-align: center;
@@ -38,6 +43,7 @@ h1 {
     font-size: 70px;
     font-variant-caps: titling-caps;
     font-weight: bolder;
+    text-align: center;
 }
 h2 {
     background-color: white;
