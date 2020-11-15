@@ -4,7 +4,7 @@
 
 <div class="client-module">
     <h2><%= link_to client.name, client_path(client) %></h2>
-    <h3><%= client.productions.count %></h3>
+    <h3><span class="label-tag">Total<br>Productions:</span><br><%= client.productions.count %></h3>
 </div>
 
 <% end %>

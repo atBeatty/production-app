@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  # get 'productions/significant_contracts', to: 'productions#significant_contracts'
-  resources :productions
-  resources :users
-  resources :clients
+  resources :productions, :users, :clients
+
+  resources :clients do
+    resources :productions, only: [:new]
+  end
 
   resources :producers do 
     resources :productions
