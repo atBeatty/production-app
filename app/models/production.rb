@@ -8,7 +8,9 @@ class Production < ApplicationRecord
   scope :significant_contracts, -> {where("contract > ?", 40000)}
 
 
+
   def client_name=(name)
+    #Find or create by
     client = Client.find_by(name: name)
     if client
       self.client_id = client.id
@@ -19,12 +21,13 @@ class Production < ApplicationRecord
   end
 
   def client_name
-    self.client ? self.client.name : nil
+    #Short circuiting
+    # self.client ? self.client.name : nil
+    self.client && self.client.name
   end
 
   def status
     if self.start_date && self.end_date
-      binding.pry
       return "Contract Closed"
     end
     

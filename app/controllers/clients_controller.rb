@@ -18,8 +18,9 @@ class ClientsController < ApplicationController
     end
 
     def create
-        @client = Client.create(client_params)
-        redirect_to @client
+        client = Client.create(client_params)
+        flash[:errors] = client.errors.full_messages
+        redirect_to client
     end
 
     def update

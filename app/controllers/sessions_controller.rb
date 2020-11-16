@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
         if @user.nil?
             redirect_to '/signup'
         else
-            session[:user_id] = @user.id
+            session[:user_id] = @user.id #current_user not nil
             redirect_to '/'
         end
     end
