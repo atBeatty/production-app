@@ -5,6 +5,8 @@ class ClientsController < ApplicationController
     def index
         if params[:filter] == "Alphabetical"
             @clients = Client.alphabetical
+        elsif params[:filter] == "Total-Productions"
+            @clients = Client.total_productions
         else
             @clients = Client.all
         end

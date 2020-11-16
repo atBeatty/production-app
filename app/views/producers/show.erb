@@ -1,4 +1,4 @@
-<h1><%= @producer.name %> $<%= @producer.rate %></h1>
+<%= render "producer" %>
 <%= link_to "Edit", edit_producer_path(@producer) %>
 <%= link_to "Delete", @producer, method: :delete %>
 

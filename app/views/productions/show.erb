@@ -3,6 +3,8 @@
 <h2>Contract Value: $<%= @production.contract %></h2>
 <h2><span class="label-tag">LML Producer:</span><%= @production.producer.name %></h2>
 <h2><span class="label-tag">LML Client:</span><%= @production.client_name %></h2>
+<h2><span class="label-tag">Status:</span><%= @production.status %></h2>
+
 <%= link_to "Edit", edit_production_path(@production) %>
 <%= link_to "Delete", @production, method: :delete %>
 

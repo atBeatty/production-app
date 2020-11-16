@@ -6,10 +6,11 @@ class ProductionsController < ApplicationController
     def index
         if params[:producer_id]
             @productions = Producer.find(params[:producer_id]).productions
+        elsif params[:client_id]
+            @productions = Client.find(params[:client_id]).productions
         elsif params[:filter] == "Significant Contracts"
             @productions = Production.significant_contracts
             render '/productions/index'
-
         else
             @productions = current_user.productions
         end
@@ -28,7 +29,6 @@ class ProductionsController < ApplicationController
     end
 
     def create
-        binding.pry
         production = current_user.productions.build(production_params)
         # production = Production.new(production_params)
         # production.user_id = current_user.id
@@ -63,7 +63,7 @@ class ProductionsController < ApplicationController
     end
 
     def production_params
-        params.require(:production).permit(:title, :contract, :user_id, :producer, :client_name, :producer_id, :client_id)
+        params.require(:production).permit(:title, :contract, :user_id, :producer, :client_name, :producer_id, :client_id, :start_date, :end_date)
     end
 
 

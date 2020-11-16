@@ -6,10 +6,7 @@
 
         <%= link_to "Edit", edit_client_path(@client) %>
         <%= link_to "Delete", @client, method: :delete %>
+        <%= link_to "Production List", client_productions_path(@client) %>
     </div>
 </div>
 
-<h2>Previous Productions With LML</h2>
-<% @client.productions.each do |production| %>
-    <h5><%= production.title %></h5>
-<% end %>

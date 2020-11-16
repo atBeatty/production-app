@@ -7,6 +7,12 @@ class Client < ApplicationRecord
     def self.alphabetical
         Client.order(:name)
     end
+
+    def self.total_productions
+        
+        
+        
+    end
     
     
     

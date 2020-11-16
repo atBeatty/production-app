@@ -22,6 +22,15 @@ class Production < ApplicationRecord
     self.client ? self.client.name : nil
   end
 
+  def status
+    if self.start_date && self.end_date
+      binding.pry
+      return "Contract Closed"
+    end
+    
+  end
+
+
   
 
 

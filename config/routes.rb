@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :productions, :users, :clients
+  resources :productions
+  resources :users, only: [:new]
 
   resources :clients do
-    resources :productions, only: [:new]
+    resources :productions, only: [:new, :index]
   end
 
   resources :producers do 
