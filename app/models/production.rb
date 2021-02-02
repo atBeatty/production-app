@@ -6,6 +6,7 @@ class Production < ApplicationRecord
   validates :contract, presence: true
   validates :client_id, presence: true
   scope :significant_contracts, -> {where("contract > ?", 40000)}
+  scope :highest_contract, -> {maximum("contract")}
 
 
 

@@ -15,6 +15,9 @@ class ProductionsController < ApplicationController
             @productions = current_user.productions
         end
     end
+    def highest_contract
+        @production = Production.highest_contract
+    end
 
     def new
         @producers = Producer.all

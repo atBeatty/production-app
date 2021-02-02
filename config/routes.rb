@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :producers do 
     resources :productions
   end
-  
+  get '/highest_contract', to: 'productions#highest_contract'
   get '/auth/:provider/callback', :to => 'sessions#omniauth'
   
   get '/login', to: 'sessions#login'

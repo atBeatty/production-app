@@ -6,6 +6,7 @@
     <%= f.label :client_name %>
     <%= f.text_field :client_name %>
     <%= f.label :producer %>
-    <%= f.collection_select(:producer_id, @producers, :id, :name) %>
+    <%= f.collection_select(:producer_id, @producers, :id, :id) %>
+    production[:producer_id] = list-@producers, 
     <%= f.submit %>
 <% end %>
